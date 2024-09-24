@@ -29,7 +29,8 @@ namespace Obligatorisk_opgave.Tests
         [TestMethod()]
         public void ToStringTest()
         {
-            Assert.Fail();
+            Setup();
+            Assert.AreEqual("Id: 0, Competition: Karate, Year: 1970", t1.ToString());
         }
 
 

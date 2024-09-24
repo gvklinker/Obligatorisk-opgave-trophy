@@ -29,5 +29,13 @@
             ValidateCompetition();
             ValidateYear();
         }
+
+        public override bool Equals(object? obj)
+        {
+            Trophy other = obj as Trophy;
+            if (obj == null) return false;
+
+            return other.Id == Id && other.Year == Year && other.Competition == Competition;
+        }
     }
 }
