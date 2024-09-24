@@ -25,9 +25,9 @@ namespace Obligatorisk_opgave.Tests
         public void GetTest()
         {
             Setup();
-            Assert.AreEqual(_repository.GetById(4), _repository.Get(minYear: 2010).FirstOrDefault());
-            Assert.AreEqual(_repository.GetById(3), _repository.Get(maxYear: 2010).LastOrDefault());
-            Assert.AreEqual(_repository.GetById(3), _repository.Get(sort:"competition").LastOrDefault());
+            Assert.AreEqual(_repository.GetById(3), _repository.Get(minYear: 2010).FirstOrDefault());
+            Assert.AreEqual(_repository.GetById(2), _repository.Get(maxYear: 2010).LastOrDefault());
+            Assert.AreEqual(_repository.GetById(3), _repository.Get(sort: "competition").LastOrDefault());
         }
 
 

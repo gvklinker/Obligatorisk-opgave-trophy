@@ -9,6 +9,7 @@ namespace Obligatorisk_opgave
     public class TrophyRepository
     {
         private List<Trophy> repo;
+        private int nextId = 1;
         public int Count { get { return repo.Count; } }
         public TrophyRepository()
         {
@@ -22,10 +23,11 @@ namespace Obligatorisk_opgave
                 list = list.FindAll(x => x.Year <= maxYear);
             if (sort != null)
             {
+
                 switch (sort.ToLower())
                 {
-                    case "year": list.OrderBy(x => x.Year); break;
-                    case "competition": list.OrderBy(x => x.Competition); break;
+                    case "year": list = list.OrderBy(x => x.Year).ToList(); break;
+                    case "competition": list = list.OrderBy(x => x.Competition).ToList(); break;
                     default: break;
                 }
             }
@@ -39,7 +41,7 @@ namespace Obligatorisk_opgave
 
         public Trophy Add(Trophy trophy)
         {
-            trophy.Id = Count > 0 ? ++repo.LastOrDefault().Id : 1;
+            trophy.Id = nextId++;
             repo.Add(trophy);
             return GetById(trophy.Id);
         }
